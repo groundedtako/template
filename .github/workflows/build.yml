@@ -47,7 +47,7 @@ jobs:
       - name: Run cargo-tarpaulin
         id: tarpaulin
         run: cargo tarpaulin --out Xml Html --output-dir ./target/ --timeout 120 --ignore-tests --exclude-files "src/main.rs"
-      - name: Install bc
+      - name: Install dependencies
         run: sudo apt-get install bc
       - name: Check Code Coverage
         run: |
@@ -71,7 +71,7 @@ jobs:
           git config --global user.name 'Coverage Bot'
           git config --global user.email 'coverage@bot.com'
           git fetch
-          git checkout -b coverage-reports
+          git checkout coverage-reports
           mkdir -p coverage_reports
           cp ./target/cobertura.xml coverage_reports/$(date +%Y-%m-%d)-report.xml
           cp ./target/tarpaulin-report.html coverage_reports/$(date +%Y-%m-%d)-report.html
