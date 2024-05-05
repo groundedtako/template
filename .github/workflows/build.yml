@@ -73,8 +73,8 @@ jobs:
           git fetch
           git checkout coverage-reports
           mkdir -p coverage_reports
-          cp ./target/cobertura.xml coverage_reports/$(date +%Y-%m-%d)-report.xml
-          cp ./target/tarpaulin-report.html coverage_reports/$(date +%Y-%m-%d)-report.html
+          cp ./target/cobertura.xml coverage_reports/$(date +%Y-%m-%d-%H-%M-%S)-report.xml
+          cp ./target/tarpaulin-report.html coverage_reports/$(date +%Y-%m-%d-%H-%M-%S)-report.html
           git add coverage_reports/*
           git commit -m "Update coverage report"
           git push origin coverage-reports
