@@ -59,3 +59,10 @@ repos:
         language: rust
         files: \.rs$
         pass_filenames: false
+      - id: cargo-tarpaulin
+        name: cargo tarpaulin
+        description: Check test coverage
+        entry: bash -c 'cargo tarpaulin --fail-under 80 --all --all-features --exclude-files tests/* '
+        language: rust
+        files: \.rs$
+        pass_filenames: false
